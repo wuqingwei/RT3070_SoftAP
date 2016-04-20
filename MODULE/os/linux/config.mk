@@ -560,6 +560,10 @@ ifeq ($(PLATFORM),CAVM_OCTEON)
 				    -mabi=64 $(WFLAGS)
 export CFLAGS
 endif
+ifeq ($(PLATFORM),A20)
+        EXTRA_CFLAGS := -v $(WFLAGS) -I$(RT28xx_DIR)/include 
+	export CFLAGS        
+endif
 
 ifeq ($(PLATFORM),DM6446)
 	CFLAGS := -nostdinc -iwithprefix include -D__KERNEL__ -I$(RT28xx_DIR)/include -I$(LINUX_SRC)/include  -Wall -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Os -fno-omit-frame-pointer -fno-omit-frame-pointer -mapcs -mno-sched-prolog -mlittle-endian -mabi=apcs-gnu -D__LINUX_ARM_ARCH__=5 -march=armv5te -mtune=arm9tdmi -msoft-float -Uarm -Wdeclaration-after-statement -c -o $(WFLAGS)

@@ -550,7 +550,10 @@ ifeq ($(PLATFORM),IXP)
         EXTRA_CFLAGS := -v $(WFLAGS) -I$(RT28xx_DIR)/include 
 	export CFLAGS        
 endif
-
+ifeq ($(PLATFORM),A20)
+        EXTRA_CFLAGS := -v $(WFLAGS) -I$(RT28xx_DIR)/include 
+	export CFLAGS        
+endif
 ifeq ($(PLATFORM),SMDK)
         EXTRA_CFLAGS := $(WFLAGS) -I$(RT28xx_DIR)/include
 endif
