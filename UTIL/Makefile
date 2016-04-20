@@ -23,7 +23,8 @@ RTMP_SRC_DIR = $(RT28xx_DIR)/RT$(CHIPSET)
 #PLATFORM = SIGMA_8622
 #PLATFORM = INIC
 #PLATFORM = STAR
-PLATFORM = IXP
+#PLATFORM = IXP
+PLATFORM = A20
 #PLATFORM = INF_TWINPASS
 #PLATFORM = INF_DANUBE
 #PLATFORM = INF_AR9
@@ -183,6 +184,12 @@ endif
 
 ifeq ($(PLATFORM),DM6446)
 LINUX_SRC = /home/fonchi/work/soc/ti-davinci
+endif
+
+ifeq ($(PLATFORM),A20)
+LINUX_SRC = /opt/kaifaban/A20_SDK2015/linux-sdk-card/linux-sunxi/
+LINUX_SRC_MODULE = /opt/kaifaban/A20_SDK2015/linux-sdk-card/linux-sunxi/drivers/net/wireless/
+CROSS_COMPILE = /usr/bin/arm-linux-gnueabihf-
 endif
 
 export OSABL RT28xx_DIR RT28xx_MODE LINUX_SRC CROSS_COMPILE CROSS_COMPILE_INCLUDE PLATFORM RELEASE CHIPSET RTMP_SRC_DIR LINUX_SRC_MODULE TARGET
